@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "customerAuthToken": {
+            "type": "string"
+        },
+        "customerId": {
+            "type": "string"
+        },
+        "customerNamePrefix": {
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

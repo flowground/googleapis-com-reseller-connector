@@ -1,0 +1,339 @@
+{
+    "title": "Enterprise Apps Reseller",
+    "description": "Creates and manages your customers and their subscriptions.",
+    "docsUrl": "https://developers.google.com/google-apps/reseller/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/reseller/v1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/apps/reseller/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "reseller_customers_insert": {
+            "main": "./lib/actions/reseller_customers_insert.js",
+            "title": "Order a new customer's account.",
+            "description": "Order a new customer's account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_customers_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_customers_get": {
+            "main": "./lib/actions/reseller_customers_get.js",
+            "title": "Get a customer account.",
+            "description": "Get a customer account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_customers_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_customers_patch": {
+            "main": "./lib/actions/reseller_customers_patch.js",
+            "title": "Update a customer account's settings. This method supports patch semantics.",
+            "description": "Update a customer account's settings. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_customers_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_customers_update": {
+            "main": "./lib/actions/reseller_customers_update.js",
+            "title": "Update a customer account's settings.",
+            "description": "Update a customer account's settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_customers_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_subscriptions_insert": {
+            "main": "./lib/actions/reseller_subscriptions_insert.js",
+            "title": "Create or transfer a subscription.",
+            "description": "Create or transfer a subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_subscriptions_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_subscriptions_delete": {
+            "main": "./lib/actions/reseller_subscriptions_delete.js",
+            "title": "Cancel or transfer a subscription to direct.",
+            "description": "Cancel or transfer a subscription to direct.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_subscriptions_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_subscriptions_get": {
+            "main": "./lib/actions/reseller_subscriptions_get.js",
+            "title": "Get a specific subscription.",
+            "description": "Get a specific subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_subscriptions_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_subscriptions_activate": {
+            "main": "./lib/actions/reseller_subscriptions_activate.js",
+            "title": "Activates a subscription previously suspended by the reseller",
+            "description": "Activates a subscription previously suspended by the reseller",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_subscriptions_activate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_subscriptions_changePlan": {
+            "main": "./lib/actions/reseller_subscriptions_changePlan.js",
+            "title": "Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with monthly or yearly payments.",
+            "description": "Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with monthly or yearly payments.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_subscriptions_changePlan.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_subscriptions_changeRenewalSettings": {
+            "main": "./lib/actions/reseller_subscriptions_changeRenewalSettings.js",
+            "title": "Update a user license's renewal settings. This is applicable for accounts with annual commitment plans only.",
+            "description": "Update a user license's renewal settings. This is applicable for accounts with annual commitment plans only.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_subscriptions_changeRenewalSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_subscriptions_changeSeats": {
+            "main": "./lib/actions/reseller_subscriptions_changeSeats.js",
+            "title": "Update a subscription's user license settings.",
+            "description": "Update a subscription's user license settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_subscriptions_changeSeats.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_subscriptions_startPaidService": {
+            "main": "./lib/actions/reseller_subscriptions_startPaidService.js",
+            "title": "Immediately move a 30-day free trial subscription to a paid service subscription.",
+            "description": "Immediately move a 30-day free trial subscription to a paid service subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_subscriptions_startPaidService.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_subscriptions_suspend": {
+            "main": "./lib/actions/reseller_subscriptions_suspend.js",
+            "title": "Suspends an active subscription.",
+            "description": "Suspends an active subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_subscriptions_suspend.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_resellernotify_getwatchdetails": {
+            "main": "./lib/actions/reseller_resellernotify_getwatchdetails.js",
+            "title": "Returns all the details of the watch corresponding to the reseller.",
+            "description": "Returns all the details of the watch corresponding to the reseller.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_resellernotify_getwatchdetails.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_resellernotify_register": {
+            "main": "./lib/actions/reseller_resellernotify_register.js",
+            "title": "Registers a Reseller for receiving notifications.",
+            "description": "Registers a Reseller for receiving notifications.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_resellernotify_register.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_resellernotify_unregister": {
+            "main": "./lib/actions/reseller_resellernotify_unregister.js",
+            "title": "Unregisters a Reseller for receiving notifications.",
+            "description": "Unregisters a Reseller for receiving notifications.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_resellernotify_unregister.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reseller_subscriptions_list": {
+            "main": "./lib/actions/reseller_subscriptions_list.js",
+            "title": "List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions.",
+            "description": "List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reseller_subscriptions_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

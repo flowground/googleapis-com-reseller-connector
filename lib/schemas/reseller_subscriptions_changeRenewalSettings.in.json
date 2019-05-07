@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "customerId": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "JSON template for a subscription renewal settings.",
+            "properties": {
+                "kind": {
+                    "default": "subscriptions#renewalSettings",
+                    "description": "Identifies the resource as a subscription renewal setting. Value: subscriptions#renewalSettings",
+                    "type": "string"
+                },
+                "renewalType": {
+                    "description": "Renewal settings for the annual commitment plan. For more detailed information, see renewal options in the administrator help center. When renewing a subscription, the renewalType is a required property.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

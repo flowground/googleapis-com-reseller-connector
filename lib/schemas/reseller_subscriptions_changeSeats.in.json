@@ -1,0 +1,55 @@
+{
+    "type": "object",
+    "properties": {
+        "customerId": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "JSON template for subscription seats.",
+            "properties": {
+                "kind": {
+                    "default": "subscriptions#seats",
+                    "description": "Identifies the resource as a subscription seat setting. Value: subscriptions#seats",
+                    "type": "string"
+                },
+                "licensedNumberOfSeats": {
+                    "description": "Read-only field containing the current number of users that are assigned a license for the product defined in skuId. This field's value is equivalent to the numerical count of users returned by the Enterprise License Manager API method: listForProductAndSku",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "maximumNumberOfSeats": {
+                    "description": "This is a required property and is exclusive to subscriptions with FLEXIBLE or TRIAL plans. This property sets the maximum number of licensed users allowed on a subscription. This quantity can be increased up to the maximum limit defined in the reseller's contract. The minimum quantity is the current number of users in the customer account. Note: G Suite subscriptions automatically assign a license to every user.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "numberOfSeats": {
+                    "description": "This is a required property and is exclusive to subscriptions with ANNUAL_MONTHLY_PAY and ANNUAL_YEARLY_PAY plans. This property sets the maximum number of licenses assignable to users on a subscription. The reseller can add more licenses, but once set, the numberOfSeats cannot be reduced until renewal. The reseller is invoiced based on the numberOfSeats value regardless of how many of these user licenses are assigned. Note: G Suite subscriptions automatically assign a license to every user.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
